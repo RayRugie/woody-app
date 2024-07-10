@@ -24,56 +24,56 @@ $font-secondary: 'Open Sans', sans-serif;
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 900px) {
-      justify-content: flex-start;
-    
-    }
+    // @media (max-width: 900px) {
+    //   justify-content: flex-start;
 
-    .logo-container{
-      display: flex;  
+    // }
+
+    .logo-container {
+      display: flex;
 
       .logo {
         width: 100%;
         height: 100%;
-    
+
         img {
           width: auto;
           height: auto;
         }
-    
+
         @media (max-width: 900px) {
           display: block;
         }
       }
 
     }
-  
+
     .hamburger {
       display: none;
       color: $text-color;
       cursor: pointer;
-      
-      
+
       @media (max-width: 900px) {
-        width: 45%;
+        width: 15%;
         display: flex;
         font-size: 24px;
-        justify-content: flex-end;
+        justify-content: flex-start;
         padding-left: 1rem;
+        z-index: 200;
       }
     }
-  
+
     .nav-menu {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 40%;
+      width: 38%;
 
-  
+
       @media (max-width: 900px) {
         display: none;
       }
-  
+
       ul {
         display: flex;
         justify-content: space-between;
@@ -83,22 +83,22 @@ $font-secondary: 'Open Sans', sans-serif;
         padding: 0;
         margin: 0;
         white-space: nowrap;
-  
+
         li {
           cursor: pointer;
-  
+
           a {
             color: $text-color;
             text-decoration: none;
             font-family: $font-secondary;
             cursor: pointer;
             transition: text-decoration 0.3s ease;
-  
+
             &.active {
               text-decoration: underline;
               text-decoration-thickness: 3px;
             }
-  
+
             &:hover {
               text-decoration: underline;
               text-decoration-thickness: 2px;
@@ -106,9 +106,9 @@ $font-secondary: 'Open Sans', sans-serif;
           }
         }
       }
-  
-  
-  
+
+
+
       &.open {
         display: flex;
         position: absolute;
@@ -116,16 +116,20 @@ $font-secondary: 'Open Sans', sans-serif;
         right: 0;
         width: 50%;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: #5C2C06;
         flex-direction: column;
         align-items: center;
         padding: 1rem 0;
-  
+
         ul {
           flex-direction: column;
           gap: 1rem;
+          padding-top: 2rem;
+          justify-content: space-between;
+          align-items: center;
+          height: 40%;
         }
-  
+
         .shop-now-btn {
           display: block;
           width: 80%;
@@ -134,28 +138,29 @@ $font-secondary: 'Open Sans', sans-serif;
         }
       }
     }
-  
+
     .nav-left-wrapper {
-      width: 15%;
+      width: 20%;
 
       @media (max-width:900px) {
         display: none;
       }
+
       .nav-left {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 10px;
-    
+
         .contact-us {
           color: white;
           text-decoration: none;
-    
+
           @media (max-width:900px) {
             display: none;
           }
         }
-    
+
         .shop-now-btn {
           background-color: $primary-color;
           color: $text-color;
@@ -167,11 +172,11 @@ $font-secondary: 'Open Sans', sans-serif;
           cursor: pointer;
           transition: background-color 0.3s ease;
           white-space: nowrap;
-    
+
           @media (max-width:900px) {
             display: none;
           }
-    
+
           &:hover {
             background-color: darken($primary-color, 10%);
           }
@@ -183,7 +188,6 @@ $font-secondary: 'Open Sans', sans-serif;
 
 .home-page {
   width: 100%;
-  height: 100vh;
   overflow-x: hidden;
   background: url('../../assets/background.jpg') no-repeat center center/cover;
   position: relative;
@@ -195,11 +199,64 @@ $font-secondary: 'Open Sans', sans-serif;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
+
+    &.modal-open {
+      overflow: hidden;
+    }
+
+    .modal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+
+      .close-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: $text-color;
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          a {
+            color: $text-color;
+            text-decoration: none;
+            font-family: $font-secondary;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: lighten($text-color, 20%);
+            }
+          }
+        }
+      }
+    }
   }
+
 
   .hero-section {
     display: flex;
@@ -208,19 +265,21 @@ $font-secondary: 'Open Sans', sans-serif;
     justify-content: center;
     text-align: center;
     height: 100vh;
-    gap: 10px;
+    overflow: hidden;
     position: relative;
     z-index: 2;
-   
+    padding-top: 4rem;
 
-    @media (max-width: 900px){
+
+    @media (max-width: 900px) {
       padding-top: 4rem;
+      height: 80vh;
     }
 
     h1 {
       color: $text-color;
       font-family: $font-primary;
-      font-size: 4rem;
+      font-size: 3.6rem;
       font-weight: 700;
       width: 69%;
 
@@ -235,7 +294,7 @@ $font-secondary: 'Open Sans', sans-serif;
       font-family: $font-secondary;
       font-size: 1.25rem;
       width: 37%;
-      font-weight: 600;
+      font-weight: 500;
 
       @media (max-width: 900px) {
         font-size: 1rem;
@@ -246,22 +305,17 @@ $font-secondary: 'Open Sans', sans-serif;
     .shop-now-btn {
       background-color: $primary-color;
       color: $text-color;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 3rem;
       border: none;
       border-radius: 8px;
       font-family: $font-secondary;
-      font-size: 31px;
+      font-size: 2rem;
       font-weight: 500;
       cursor: pointer;
-      width: 290px;
-      height: 80px;
       transition: background-color 0.3s ease;
 
       @media (max-width: 700px) {
         font-size: 1rem;
-        width: auto;
-        height: auto;
-        padding: 0.5rem 1rem;
       }
 
       &:hover {

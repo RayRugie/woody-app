@@ -6,7 +6,6 @@ import ProductsSection from './components/product/product.component';
 import Checkout from './components/routes/checkout/checkout.component';
 import Payment from './components/routes/payment/payment.component';
 import HomePage from './pages/HomePage';
-//hi
 
 const App = () => {
   return (

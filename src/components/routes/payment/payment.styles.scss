@@ -96,6 +96,11 @@ body {
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
+            @media (max-width:900px) {
+                width: 80%;
+                max-width: 400px;
+            }
+
             .form-group {
                 margin: 1em 0;
 
@@ -136,8 +141,7 @@ body {
                 justify-content: left;
 
                 input[type="checkbox"] {
-                    transform: scale(1.5); /* Increase the size of the checkbox */
-                    // margin-right: 0.5em;
+                    transform: scale(1.5);
                 }
 
                 label {
@@ -146,8 +150,8 @@ body {
             }
 
             .pay-button {
-                margin-top: 1em;
-                padding: 0.5em 2em;
+                margin: 2em 0;
+                padding: 1em 2em;
                 background-color: #E67E22;
                 color: white;
                 border: none;
@@ -155,6 +159,10 @@ body {
                 font-size: 1em;
                 border-radius: 5px;
                 width: 100%;
+
+                @media (max-width:900px) {
+                    width: 60%;
+                }
 
                 &:hover {
                     background-color: darken(#E67E22, 10%);
