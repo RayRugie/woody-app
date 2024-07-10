@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../cart/cart.styles.scss"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import Comfy from "../../../assets/comfy-chair.jpg";
 import Fancy from "../../../assets/fancy-chair.jpg";
@@ -8,10 +8,24 @@ import Wardrobe from "../../../assets/wardrobe.jpg";
 import Logo from "../../../assets/Logo.png";
 import Mastercard from "../../../assets/mastercard.jpg";
 import Visa from "../../../assets/visa.jpg";
+import Header1 from '../../hero/Header1';
+
 
 
 
 const Cart = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+  const handleClick = () => {
+    const anchor = document.getElementById("products-anchor");
+    anchor.scrollIntoView({ behavior: "smooth" });
+  };
+
+
   const navigate = useNavigate();
 
   const handleBackButtonClick = () => {
@@ -24,35 +38,28 @@ const Cart = () => {
 
   return (
     <div className="cart-page">
-      <header className="header">
-        <div className="logo">
-          <a href="/" ><img src={Logo} alt="Logo" /></a>
-        </div>
-        <nav className="navigation">
-          <ul>
-            <li>
-              <a href="/" >
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="/products">Products</a>
-            </li>
-            <li>
-              <a href="/cart" className="active">Cart</a>
-            </li>
-            <li>
-              <a href="/blog">Blog</a>
-            </li>
-            <li>
-              <a href="/contact">Contact Us</a>
-            </li>
-          </ul>
-        </nav>
-        <button className="back-button" onClick={handleBackButtonClick}>
-          Back
-        </button>
-      </header>
+     <Header1 handleClick={handleClick} handleModalToggle={handleModalToggle} />
+      <div className={`hero-container ${isModalOpen ? "modal-open" : ""}`}>
+        {isModalOpen && (
+          <div className="modal">
+            <FaTimes className="close-icon" onClick={handleModalToggle} />
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/services">Services</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
       <main>
         <div className="cart-container">
           <div className="cart-side">
