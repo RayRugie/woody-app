@@ -100,12 +100,29 @@ body {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
             @media (max-width:900px) {
-                width: 80%;
+                width: 95%;
                 max-width: 400px;
+                padding: 1em;
             }
 
+                // Define breakpoints
+                $small-screen: 600px;
+
+                // Hide by default
+                .show-on-small-screen {
+                display: none;
+                }
+
+                // Show on small screens
+                @media (max-width: $small-screen) {
+                .show-on-small-screen {
+                    display: block;
+                }
+                }
+
+
             .form-group {
-                margin: 1em 0;
+                margin: 1em 2em;
 
                 label {
                     display: block;
@@ -117,11 +134,17 @@ body {
 
                 input {
                     width: 100%;
-                    padding: 0.5em;
+                    padding: 1.1em;
                     border: 1px solid #ccc;
                     border-radius: 5px;
                     font-size: 1em;
                     outline: none;
+
+                    @media (max-width:900px) {
+                        padding: 1em;
+                    }
+
+                    
 
                     &:hover {
                         border-color: #5C2C06;
@@ -134,75 +157,107 @@ body {
                 justify-content: space-between;
 
                 .form-group {
-                    width: 48%;
+                    width: 41%;
                 }
             }
 
             .save-details {
                 display: flex;
-                align-items: start;
-                justify-content: left;
-
-                input[type="checkbox"] {
-                    transform: scale(1.5);
-                }
-
-                label {
-                    margin: 0;
-                }
-            }
-
-            .pay-button {
-                margin: 2em 0;
-                padding: 1em 2em;
-                background-color: #E67E22;
-                color: white;
-                border: none;
-                cursor: pointer;
-                font-size: 1em;
-                border-radius: 5px;
+                align-items: center;
+                margin: 1em 0;
                 width: 100%;
 
-                @media (max-width:900px) {
-                    width: 60%;
-                }
+                .save-details-container{
+                    display: flex;
+                    flex-direction: row;
+                    
+                    margin: 1em 2em;
 
-                &:hover {
-                    background-color: darken(#E67E22, 10%);
-                }
-            }
+                    input[type="checkbox"] {
+                        transform: scale(1.5);
+                        margin-right: 0.5em;
+                        outline: none;
+                    }
 
-            .payment-options {
-                display: flex;
-                justify-content: space-between;
-                margin-top: 1em;
-
-                .change-method-button,
-                .cancel-button {
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    font-family: 'Open Sans', sans-serif;
-                    text-decoration: underline;
-                    color: #4a4a4a;
-
-                    &:hover {
-                        color: #000;
+                    label {
+                        font-size: 1em;
+                        margin: 0;
+                        display: inline-block;
+                        white-space: nowrap;
                     }
                 }
             }
 
-            .secured-by {
-                margin-top: 1em;
-                font-family: 'Open Sans', sans-serif;
-                font-size: 0.9em;
-                color: #4a4a4a;
+        }
 
-                .paystack {
-                    color: #004080;
-                    font-weight: bold;
+        .under {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+                .pay-button {
+                    margin: 2em 0;
+                    padding: 1em 1em;
+                    background-color: #D27C2C;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 1em;
+                    border-radius: 5px;
+                    width: 38%;
+        
+                    @media (max-width:900px) {
+                        width: 80%;
+                    }
+        
+                    &:hover {
+                        background-color: darken(#D27C2C, 10%);
+                    }
                 }
-            }
+        
+                .payment-options {
+                    display: flex;
+                    justify-content: space-between;
+                    // margin-top: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: center;
+                
+        
+                    .change-method-button,
+                    .cancel-button {
+                        background: #CEC6C630;
+                        border: 1px solid #ccc;
+                        margin: 0.8em 0;
+                        padding: 1em 1em;
+                        cursor: pointer;
+                        font-family: 'Open Sans', sans-serif;
+                        text-decoration: none;
+                        color: #4a4a4a;
+                        width: 28%;
+                        // margin-bottom: 1em;
+                        @media (max-width:900px) {
+                            width: 63%;
+                            white-space: nowrap;
+                        }
+        
+                        &:hover {
+                            color: #000;
+                        }
+                    }
+                }
+        
+                .secured-by {
+                    margin-top: 1em;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 0.9em;
+                    color: #4a4a4a;
+        
+                    .paystack {
+                        color: #004080;
+                        font-weight: bold;
+                    }
+                }
         }
     }
 }
