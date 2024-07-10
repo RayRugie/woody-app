@@ -28,18 +28,21 @@ const Header1 = ({ handleClick }) => {
   }, [isNavOpen]);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-content">
-        <div className="logo-container">
-          <div className="logo">
+    <nav className="navbar1">
+      <div className="navbar-content1">
+        <div className="logo-container1">
+          <div className="logo1">
+            <a href="/">
             <img src={Logo} alt="Logo" />
+            
+            </a>
           </div>
         </div>
 
         <div className="hamburger" onClick={toggleNav}>
           {isNavOpen ? <FaTimes /> : <GiHamburgerMenu />}
         </div>
-        <div className={`nav-menu ${isNavOpen ? "open" : ""}`}>
+        <div className={`nav-menu1 ${isNavOpen ? "open" : ""}`}>
           <ul>
             <li>
               <NavLink
