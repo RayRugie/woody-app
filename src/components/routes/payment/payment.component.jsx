@@ -1,51 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink, } from "react-router-dom";
 import "../payment/payment.styles.scss";
 import Logo from "../../../assets/logo.svg";
+import Header1 from '../../hero/Header1';
+import { FaTimes } from "react-icons/fa";
 
 const Payment = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleClick = () => {
+      const anchor = document.getElementById("products-anchor");
+      anchor.scrollIntoView({ behavior: "smooth" });
+    };
+
   return (
     <div className="payment">
-      <header className="header">
-        <div className="logo">
-          <Link to="/">
-          <img src={Logo} alt="Woody Logo" />
-          </Link>
-          
-        </div>
-        <nav className="navigation">
-          <ul>
-            <li>
-              <NavLink to="/" exact activeClassName="active">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/products" activeClassName="active">
-                Products
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/cart" exact activeClassName="active">
-                Cart
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/blog" activeClassName="active">
-                Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact-us" activeClassName="active">
-                Contact Us
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-        <button className="back-button" onClick={() => window.history.back()}>
-          Back
-        </button>
-      </header>
+      <Header1 handleClick={handleClick} handleModalToggle={handleModalToggle} />
+      <div className={`hero-container ${isModalOpen ? "modal-open" : ""}`}>
+        {isModalOpen && (
+          <div className="modal">
+            <FaTimes className="close-icon" onClick={handleModalToggle} />
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/services">Services</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
       <main className="payment-form">
         <h1>Make Payment</h1>
         <form>
