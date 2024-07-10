@@ -68,10 +68,12 @@ $font-secondary: 'Open Sans', sans-serif;
       justify-content: space-between;
       align-items: center;
       width: 38%;
+      margin-right: 5em;
 
 
       @media (max-width: 900px) {
         display: none;
+        margin-right: 0;
       }
 
       ul {

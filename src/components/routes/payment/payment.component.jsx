@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, } from "react-router-dom";
 import "../payment/payment.styles.scss";
 import Logo from "../../../assets/logo.svg";
 
@@ -8,7 +8,10 @@ const Payment = () => {
     <div className="payment">
       <header className="header">
         <div className="logo">
+          <Link to="/">
           <img src={Logo} alt="Woody Logo" />
+          </Link>
+          
         </div>
         <nav className="navigation">
           <ul>
