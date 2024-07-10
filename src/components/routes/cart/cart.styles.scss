@@ -11,73 +11,258 @@ body {
 .cart-page {
     width: 100%;
 
-    .header {
-        background-color: #64350a;
-        color: white;
+    .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1em 5%;
-        height: 80px;
-        white-space: nowrap;
-
-        .logo {
-            img {
-                width: 50%;
-                height: 50%;
-            }
-        }
-
-        .navigation {
+        position: absolute;
+        width: 98.7%;
+        padding: 0.5rem;
+        z-index: 100;
+        background: #5C2C06;
+        // overflow: hidden;
+      
+      
+        .navbar-content {
+          width: 90%;
+          padding: 10px 2%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #5C2C06;
+      
+          // @media (max-width: 900px) {
+          //   justify-content: flex-start;
+      
+          // }
+      
+          .logo-container {
             display: flex;
-            align-items: center;
-
-            @media (max-width:900px) {
-                display: none;
+      
+            .logo {
+              width: 100%;
+              height: 100%;
+      
+              img {
+                width: auto;
+                height: auto;
+              }
+      
+              @media (max-width: 900px) {
+                display: block;
+              }
             }
-
-            ul {
-                display: flex;
-                gap: 4rem;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-
-                li {
-                    a {
-                        color: #fff;
-                        text-decoration: none;
-                        font-family: "Montserrat", sans-serif;
-                        transition: text-decoration 0.3s ease;
-
-                        &.active {
-                            text-decoration: underline;
-                            text-decoration-thickness: 3px;
-                        }
-
-                        &:hover {
-                            text-decoration: underline;
-                            text-decoration-thickness: 2px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .back-button {
-            background: #d27c2c;
-            color: white;
-            border: none;
-            padding: 0.5em 1em;
+      
+          }
+      
+          .hamburger {
+            display: none;
+            color: #fff;
             cursor: pointer;
-            font-size: 1em;
-            border-radius: 11px;
-
-            &:hover {
-                background: darken(#d27c2c, 10%);
+      
+            @media (max-width: 900px) {
+              width: 15%;
+              display: flex;
+              font-size: 24px;
+              justify-content: flex-start;
+              padding-left: 1rem;
+              z-index: 200;
             }
+          }
+      
+          .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 38%;
+            margin-right: 5em;
+      
+      
+            @media (max-width: 900px) {
+              display: none;
+              margin-right: 0;
+            }
+      
+            ul {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              gap: 1rem;
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              white-space: nowrap;
+      
+              li {
+                cursor: pointer;
+      
+                a {
+                  color: #fff;
+                  text-decoration: none;
+                  font-family: 'Open Sans', sans-serif;
+                  cursor: pointer;
+                  transition: text-decoration 0.3s ease;
+      
+                  &.active {
+                    text-decoration: underline;
+                    text-decoration-thickness: 3px;
+                  }
+      
+                  &:hover {
+                    text-decoration: underline;
+                    text-decoration-thickness: 2px;
+                  }
+                }
+              }
+            }
+      
+      
+      
+            &.open {
+              display: flex;
+              position: absolute;
+              top: 40%;
+              right: 0;
+              width: 50%;
+              height: 100vh;
+              background-color: #5C2C06;
+              flex-direction: column;
+              align-items: center;
+              padding: 1rem 0;
+      
+              ul {
+                flex-direction: column;
+                gap: 1rem;
+                padding-top: 2rem;
+                justify-content: space-between;
+                align-items: center;
+                height: 40%;
+              }
+      
+              .shop-now-btn {
+                display: block;
+                width: 80%;
+                font-size: 1.25rem;
+                padding: 0.75rem;
+              }
+            }
+          }
+      
+          .nav-left-wrapper {
+            width: 20%;
+      
+            @media (max-width:900px) {
+              display: none;
+            }
+      
+            .nav-left {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+      
+              .contact-us {
+                color: white;
+                text-decoration: none;
+      
+                @media (max-width:900px) {
+                  display: none;
+                }
+              }
+      
+              .shop-now-btn {
+                background-color: #D27C2C;
+                color: #fff;
+                padding: 0.7rem 1.3rem;
+                border: none;
+                border-radius: 5px;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                white-space: nowrap;
+      
+                @media (max-width:900px) {
+                  display: none;
+                }
+      
+                &:hover {
+                  background-color: darken(#D27C2C, 10%);
+                }
+              }
+            }
+          }
         }
-    }
+      }
+
+      .hero-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        // margin-bottom: 5em;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      
+        
+      
+        &.modal-open {
+          overflow: hidden;
+        }
+      
+        .modal {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 1000;
+      
+          .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #ffff;
+            cursor: pointer;
+          }
+      
+          ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            // margin-bottom: 10em;
+            
+      
+            li {
+              a {
+                color: #ffff;
+                text-decoration: none;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 1.5rem;
+                transition: color 0.3s ease;
+      
+                &:hover {
+                  color: lighten(#ffff, 20%);
+                }
+              }
+            }
+          }
+        }
+      }
 
     main {
         @media (max-width:900px) {
@@ -118,6 +303,7 @@ body {
             .cart-side {
                 width: 70%;
                 padding-left: 5%;
+                margin-top: 2.8em;
 
                 @media (max-width: 900px) {
                     width: 100%;
@@ -225,6 +411,7 @@ body {
 
             .order-summary {
                 width: 30%;
+                margin-top: 9em;
                 max-height: 100vh;
                 min-height: 80vh;
                 background-color: #D27C2C26;

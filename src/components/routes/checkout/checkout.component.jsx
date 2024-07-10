@@ -2,8 +2,22 @@ import React, { useState } from 'react';
 import '../checkout/checkout.styles.scss';
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import Logo from "../../../assets/Logo.png";
+import Header1 from '../../hero/Header1';
+import { FaTimes } from "react-icons/fa";
 
 const Checkout = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleModalToggle = () => {
+      setIsModalOpen(!isModalOpen);
+    };
+
+    const handleClick = () => {
+        const anchor = document.getElementById("products-anchor");
+        anchor.scrollIntoView({ behavior: "smooth" });
+      };
+
     const navigate = useNavigate();
     
     const [formData, setFormData] = useState({
@@ -56,43 +70,28 @@ const Checkout = () => {
 
     return (
         <div className="checkout">
-            <header className="header">
-                <div className="logo">
-                    <Link to="/">
-                    <img src={Logo} alt="logo" />
-                    </Link>
-                </div>
-                <nav className="navigation">
-                    <ul>
-                        <li>
-                            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/product" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                Products
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/cart" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                Cart
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                Blog
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                Contact Us
-                            </NavLink>
-                        </li>
-                    </ul>
-                </nav>
-                <button className="back-button" onClick={handleBackButtonClick}>Back</button>
-            </header>
+      <Header1 handleClick={handleClick} handleModalToggle={handleModalToggle} />
+      <div className={`hero-container ${isModalOpen ? "modal-open" : ""}`}>
+        {isModalOpen && (
+          <div className="modal">
+            <FaTimes className="close-icon" onClick={handleModalToggle} />
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/services">Services</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
             <main className="checkout-form">
                 <h1>Checkout</h1>
                 <p>Please fill in the boxes below</p>
