@@ -12,18 +12,19 @@ body {
 
 .payment {
     .header {
-        background-color: #64350A;
+        background-color: #64350a;
         color: white;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1em 2em;
+        padding: 1em 5%;
         height: 80px;
+        white-space: nowrap;
 
         .logo {
             img {
-                width: 80%;
-                height: 80%;
+                width: 50%;
+                height: 50%;
             }
         }
 
@@ -31,19 +32,22 @@ body {
             display: flex;
             align-items: center;
 
+            @media (max-width:900px) {
+                display: none;
+            }
+
             ul {
                 display: flex;
                 gap: 4rem;
                 list-style: none;
                 padding: 0;
                 margin: 0;
-                margin-left: 25%;
 
                 li {
                     a {
-                        color: #ffff;
+                        color: #fff;
                         text-decoration: none;
-                        font-family: 'Montserrat', sans-serif;
+                        font-family: "Montserrat", sans-serif;
                         transition: text-decoration 0.3s ease;
 
                         &.active {
@@ -61,21 +65,20 @@ body {
         }
 
         .back-button {
-            background: #D27C2C;
+            background: #d27c2c;
             color: white;
             border: none;
             padding: 0.5em 1em;
             cursor: pointer;
             font-size: 1em;
             border-radius: 11px;
-            width: 10%;
-            height: 50px;
 
             &:hover {
-                background: darken(#D27C2C, 10%);
+                background: darken(#d27c2c, 10%);
             }
         }
     }
+
 
     .payment-form {
         padding: 2em;
