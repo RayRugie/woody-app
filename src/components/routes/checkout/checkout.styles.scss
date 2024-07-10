@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F7F7F7;
+}
+
+.header {
+  background-color: #64350A;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  height: 80px;
+
+  .logo {
+    img {
+      width: 50%;
+      height: auto;
+    }
+  }
+
+  .navigation {
+    align-items: center;
+    margin-right: 20%;
+    width: 60%;
+    display: flex;
+
+    ul {
+        display: flex;
+        gap: 4rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 7%;
+        margin-top: 1%;
+        white-space: nowrap;
+
+        li {
+            a {
+              color: #ffff;
+              text-decoration: none;
+              font-family: 'Montserrat', sans-serif;
+              transition: text-decoration 0.3s ease; /* Add transition for hover effect */
+    
+              &.active {
+                color: #fff !important;
+                text-decoration: underline;
+                text-decoration-thickness: 3px;
+                
+              }
+    
+              &:hover {
+                text-decoration: underline;
+                text-decoration-thickness: 2px;
+              }
+            }
+          }
+
+
+       
+    }
+
+    .cart {
+        text-decoration: #ffff underline;
+        text-decoration-thickness: 2px;
+
+        .cart:active{
+            text-decoration: underline;
+        }
+    }
+}
+
+  .back-button {
+    background: #D27C2C;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 11px;
+  }
+}
+
+
+.checkout-form {
+  text-align: center;
+  padding: 2em;
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form-group-name{
+        display: flex;
+        justify-content: space-between;
+        
+        .form-group-first{
+            margin-bottom: 1.5em;
+            width: 80%;
+            margin-left: -38%;
+            text-align: start;
+
+            .label {
+                display: block;
+                font-size: 1em;
+                margin-bottom: 0.5em;
+            }
+
+            input[type="text"] {
+                width: 90%;
+                height: 55%;
+                padding: 0.5em;
+                font-size: 1em;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+
+                &:hover {
+                    border-color: #5C2C06;
+                }
+                
+            }
+        }
+
+        .form-group-last{
+            margin-bottom: 1.5em;
+            width: 80%;
+            margin-right: -43%;
+            text-align: start;
+
+
+            .label {
+                display: block;
+                font-size: 1em;
+                margin-bottom: 0.5em;
+                text-align: start;
+                margin-right: 20px;
+            }
+
+            input[type="text"] {
+                width: 90%;
+                height: 55%;
+                padding: 0.5em;
+                font-size: 1em;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+
+                &:hover {
+                    border-color: #5C2C06;
+                }
+            }
+        }
+
+    }
+
+    .form-group {
+      margin-bottom: 1.5em;
+      width: 80%;
+      height: 60%;
+
+      label {
+        display: block;
+        font-size: 1em;
+        margin-bottom: 0.3em;
+        text-align: left;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 100%;
+        height: 50%;
+        padding: 0.5em;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+
+        &:hover {
+            border-color: #5C2C06;
+        }
+      }
+    }
+
+    .save-details {
+      display: flex;
+      align-items: center;
+
+      input[type="checkbox"] {
+        transform: scale(1.9);
+        margin-right: 0.5em;
+      }
+
+      label {
+        font-size: 1em;
+      }
+    }
+
+    .proceed-button {
+      padding: 1em 2em;
+      background-color: #E67E22;
+      color: white;
+      border: none;
+      font-size: 1.2em;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken(#E67E22, 10%);
+    }
+
+    .error {
+        color: red;
+        font-size: 0.9em;
+        text-align: left;
+        margin-top: 0.5em;
+      }
+    }
+  }
+}

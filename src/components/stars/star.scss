@@ -1,0 +1,16 @@
+.star-rating {
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+    // margin-left: 34%;
+  
+    .star {
+      color: #ccc; // default color
+      margin-right: 0.1rem;
+  
+      &.filled {
+        color: #ffb400; // color for filled stars
+      }
+    }
+  }
+  

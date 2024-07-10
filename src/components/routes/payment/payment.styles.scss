@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+$primary-font: 'Montserrat', Arial, sans-serif;
+$secondary-font: 'Open Sans', Arial, sans-serif;
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.payment {
+    .header {
+        background-color: #64350A;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 2em;
+        height: 80px;
+
+        .logo {
+            img {
+                width: 80%;
+                height: 80%;
+            }
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+
+            ul {
+                display: flex;
+                gap: 4rem;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                margin-left: 25%;
+
+                li {
+                    a {
+                        color: #ffff;
+                        text-decoration: none;
+                        font-family: 'Montserrat', sans-serif;
+                        transition: text-decoration 0.3s ease;
+
+                        &.active {
+                            text-decoration: underline;
+                            text-decoration-thickness: 3px;
+                        }
+
+                        &:hover {
+                            text-decoration: underline;
+                            text-decoration-thickness: 2px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .back-button {
+            background: #D27C2C;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 11px;
+            width: 10%;
+            height: 50px;
+
+            &:hover {
+                background: darken(#D27C2C, 10%);
+            }
+        }
+    }
+
+    .payment-form {
+        padding: 2em;
+        text-align: center;
+
+        h1 {
+            font-family: Montserrat;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        form {
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            .form-group {
+                margin: 1em 0;
+
+                label {
+                    display: block;
+                    margin-bottom: 0.5em;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 1em;
+                    text-align: left;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 0.5em;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    font-size: 1em;
+                    outline: none;
+
+                    &:hover {
+                        border-color: #5C2C06;
+                    }
+                }
+            }
+
+            .form-row {
+                display: flex;
+                justify-content: space-between;
+
+                .form-group {
+                    width: 48%;
+                }
+            }
+
+            .save-details {
+                display: flex;
+                align-items: start;
+                justify-content: left;
+
+                input[type="checkbox"] {
+                    transform: scale(1.5); /* Increase the size of the checkbox */
+                    // margin-right: 0.5em;
+                }
+
+                label {
+                    margin: 0;
+                }
+            }
+
+            .pay-button {
+                margin-top: 1em;
+                padding: 0.5em 2em;
+                background-color: #E67E22;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 1em;
+                border-radius: 5px;
+                width: 100%;
+
+                &:hover {
+                    background-color: darken(#E67E22, 10%);
+                }
+            }
+
+            .payment-options {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 1em;
+
+                .change-method-button,
+                .cancel-button {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-family: 'Open Sans', sans-serif;
+                    text-decoration: underline;
+                    color: #4a4a4a;
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
+            }
+
+            .secured-by {
+                margin-top: 1em;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 0.9em;
+                color: #4a4a4a;
+
+                .paystack {
+                    color: #004080;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
