@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../checkout/checkout.styles.scss';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import Logo from "../../../assets/Logo.png";
 
 const Checkout = () => {
@@ -58,7 +58,9 @@ const Checkout = () => {
         <div className="checkout">
             <header className="header">
                 <div className="logo">
-                    <img src={Logo} alt="" />
+                    <Link to="/">
+                    <img src={Logo} alt="logo" />
+                    </Link>
                 </div>
                 <nav className="navigation">
                     <ul>

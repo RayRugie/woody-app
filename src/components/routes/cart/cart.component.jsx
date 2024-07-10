@@ -26,12 +26,12 @@ const Cart = () => {
     <div className="cart-page">
       <header className="header">
         <div className="logo">
-          <img src={Logo} alt="Logo" />
+          <a href="/" ><img src={Logo} alt="Logo" /></a>
         </div>
         <nav className="navigation">
           <ul>
             <li>
-              <a href="/" className="active">
+              <a href="/" >
                 Home
               </a>
             </li>
@@ -39,7 +39,7 @@ const Cart = () => {
               <a href="/products">Products</a>
             </li>
             <li>
-              <a href="/cart">Cart</a>
+              <a href="/cart" className="active">Cart</a>
             </li>
             <li>
               <a href="/blog">Blog</a>

@@ -27,6 +27,7 @@ body {
   .navigation {
     display: flex;
     align-items: center;
+    margin-right: 15em;
 
     @media (max-width:900px) {
       display: none;
