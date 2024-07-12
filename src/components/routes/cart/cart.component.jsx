@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "../cart/cart.styles.scss"
 import { useNavigate, Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
@@ -9,11 +9,13 @@ import Logo from "../../../assets/Logo.png";
 import Mastercard from "../../../assets/mastercard.jpg";
 import Visa from "../../../assets/visa.jpg";
 import Header1 from '../../hero/Header1';
+import { CartContext } from '../../context/cart.context';
 
 
 
 
 const Cart = () => {
+  const { cartItems, cartCount, cartTotal, addItemToCart, removeItemFromCart, clearItemFromCart } = useContext(CartContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -76,13 +78,27 @@ const Cart = () => {
                     <th>Price</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+               <tbody>
+                   <tr>
                     <td className="product-info">
                       <img src={Fancy} alt="Fancy Chair" />
                       <div className="item">
+                        <div className="item-about">
+
                         <h3>Fancy Chair</h3>
-                        <p>XL</p>
+                        <p className='size-container'>
+                        <p className="show-on-small-screen-size">Size:</p>
+                          XL
+                          </p>
+                        <td className="show-on-small-screen quantity-control">
+                        <td className="price1">$130</td>
+                          <div className="quantity-buttons">
+                            <button>-</button>
+                            <span>1</span>
+                            <button>+</button>
+                          </div>
+                    </td>
+                        </div>
                         <button className="remove-button">
                           <FaTimes />
                         </button>
@@ -100,29 +116,56 @@ const Cart = () => {
                   <tr>
                     <td className="product-info">
                       <img src={Wardrobe} alt="Wardrobe" />
-                      <div>
+                      <div className='item'>
+                        <div className="item-about">
+
                         <h3>Wardrobe</h3>
-                        <p>6 Foot</p>
-                        <button className="remove-button">
-                          <FaTimes />
-                        </button>
-                      </div>
-                    </td>
-                    <td className="quantity-control">
+                        <p className='size-container'>
+                          <p className="show-on-small-screen-size">Size:</p>
+                          6 Foot
+                          </p>
+                        <td className="show-on-small-screen1 quantity-control">
+                        <td className="price1">$130</td>
                       <div className="quantity-buttons">
                         <button>-</button>
                         <span>1</span>
                         <button>+</button>
                       </div>
                     </td>
+                        </div>
+                        <button className="remove-button1">
+                          <FaTimes />
+                        </button>
+                      </div>
+                    </td>
+                    <td className="quantity-control">
+                      <div className="quantity-buttons">
+                        <button onClick={removeItemFromCart}>-</button>
+                        <span>1</span>
+                        <button onClick={addItemToCart}>+</button>
+                      </div>
+                    </td>
                     <td className="price">$90</td>
-                  </tr>
+                  </tr> 
                   <tr>
                     <td className="product-info">
                       <img src={Comfy} alt="Comfy Chair" />
-                      <div>
+                      <div className='item'>
+                      <div className="item-about">
                         <h3>Comfy Chair</h3>
-                        <p>XL</p>
+                        <p className='size-container'>
+                        <p className="show-on-small-screen-size">Size:</p>
+                          XL
+                          </p>
+                        <td className="show-on-small-screen quantity-control">
+                        <td className="price1">$130</td>
+                      <div className="quantity-buttons">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                      </div>
+                    </td>
+                    </div>
                         <button className="remove-button">
                           <FaTimes />
                         </button>
@@ -137,6 +180,36 @@ const Cart = () => {
                     </td>
                     <td className="price">$100</td>
                   </tr>
+
+                  {/* <tr className="cart-items">
+                    {cartItems.map((item) => (
+                    <div className="producT" key={item.id}>
+                      <td className="product-info1">
+                        <img src={item.image} alt={item.name} />
+                        <div className="item1">
+                        <h3>{item.name}</h3>
+                        <p>{item.size}</p>  
+                          <button className='remove-button' onClick={() => clearItemFromCart(item)}><FaTimes /></button>
+                        </div>
+
+                      </td>
+              <td className="quantity-control1">
+                <div className="quantity-buttons1">
+                  <button onClick={() => addItemToCart(item)}>+</button>
+                <p>
+                  <strong>
+                  {item.quantity}
+                  </strong> 
+                  </p>
+                  <button onClick={() => removeItemFromCart(item)}>-</button>
+                </div>
+              </td>
+              <p className='price1'>${item.price}</p>
+            </div>
+          ))}
+        </tr> */}
+
+
                 </tbody>
               </table>
             </div>
@@ -148,15 +221,15 @@ const Cart = () => {
             <div className="order">
               <div className="item">
                 <p>ITEMS 3</p>
-                <p>$320</p>
+                <p><strong>$320</strong></p>
               </div>
               <div className="delivery">
                 <p>DELIVERY</p>
-                <p>$100</p>
+                <p><strong>$100</strong></p>
               </div>
               <div className="tax">
                 <p>TAX</p>
-                <p>$0</p>
+                <p><strong>$0</strong></p>
               </div>
               <div className="payment-options">
                 <p>PAYMENT WITH CARD</p>
